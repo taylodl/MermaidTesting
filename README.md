@@ -17,7 +17,7 @@ C -->|Two| E[iPhone]
 C -->|Three| F[Car]
 ```
 
-![Flow Chart](imgs/flowchart.png)
+![Flow Chart](README/imgs/flowchart.png)
 
 
 ### Sequence Diagram
@@ -32,7 +32,7 @@ John-->>-Alice: Hi Alice, I can hear you!
 John-->>-Alice: I feel great!
 ```
 
-![Sequence Diagram](imgs/sequence-diagram.png)
+![Sequence Diagram](README/imgs/sequence-diagram.png)
 
 
 ### Class Diagram
@@ -63,7 +63,7 @@ class Zebra{
 }
 ```
 
-![Class Diagram](imgs/class-diagram.png)
+![Class Diagram](README/imgs/class-diagram.png)
 
 
 ### State Diagram
@@ -80,7 +80,7 @@ Moving --> Crash
 Crash --> [*]
 ```
 
-![State Diagram](imgs/state-diagram.png)
+![State Diagram](README/imgs/state-diagram.png)
 
 
 ### Gantt Chart
@@ -99,7 +99,7 @@ Task in sec      :2014-01-12  , 12d
 another task     : 24d
 ```
 
-![Gantt Chart](imgs/gantt-chart.png)
+![Gantt Chart](README/imgs/gantt-chart.png)
 
 
 ### Pie Chart
@@ -113,7 +113,7 @@ pie title Pets adopted by volunteers
 "Rats" : 15
 ```
 
-![Pie Chart](imgs/pie-chart.png)
+![Pie Chart](README/imgs/pie-chart.png)
 
 
 ### Git Graph
@@ -139,7 +139,7 @@ commit
 merge newbranch
 ```
 
-![Git Graph](imgs/git-graph.png)
+![Git Graph](README/imgs/git-graph.png)
 
 
 ### ER Diagram
