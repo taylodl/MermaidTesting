@@ -1,8 +1,13 @@
-# Using Mermaid in Git README files
-
 ## Mermaid Diagrams
 
-The [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/#/edit) has several sample diagrams. We want to create those here to ensure Mermaid is configured properly and works within Git.
+[Mermaid](https://mermaid-js.github.io/mermaid/#/) is a tool allowing you to generate diagrams from text in a similar manner as markdown. This allows diagrams to be easily managed by Git and used in developer-oriented contexts where it is generally not feasible (or easy) to use such diagrams.
+
+The [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/#/edit) has several sample diagrams. The goal is to test the rendering these sample diagrams in several developer contexts:
+
+* Visual Studio Code
+* Hugo
+* Git
+
 
 ### Flow Chart
 
@@ -199,12 +204,12 @@ It should be noted that the VS Code Mermaid Preview was able to properly render 
 
 ### Mermaid CLI
 
-[Mermaid.cli](https://www.npmjs.com/package/@ismarslomic/mermaid.cli) is a command line utility transforming input files containing Mermaid code into a PNG (or SVG) file as a result. This is an important capability because not all browsers render Mermaid correctly, and even for the ones that do there's significant rendering lag time when viewing on the AEP network.
+[Mermaid.cli](https://www.npmjs.com/package/@ismarslomic/mermaid.cli) is a command line utility transforming input files containing Mermaid code into a **PNG** file as a result. This is an important capability because not all browsers render Mermaid correctly, and even for the ones that do there's significant rendering lag time when viewing on the AEP network.
 
 
 ### Hugo
 
-Due to the rendering lag time issues noted in the [Mermaid CLI](#mermaid-cli) section, it is not recommended that you inline your Mermaid code when creating markdown for Hugo. Instead install the [Mermaid CLI](#mermaid-cli) and create and use PNG files instead. 
+Due to the rendering lag time issues noted in the [Mermaid CLI](#mermaid-cli) section, it is not recommended that you inline your Mermaid code when creating markdown for Hugo. Instead install the [Mermaid CLI](#mermaid-cli) and create and use **PNG** files instead. 
 
 For example, the [Flow Chart](#flow-chart) image was created as follows:
 
@@ -222,3 +227,45 @@ to produce the *flowchart.png* image.
 
 This isn't as convenient as letting the browser render the Mermaid code, but it's much faster and yields much more consistent results.
 
+
+### Git
+
+You may find it useful to embed charts and images in your Git **README** file. Unlike [Hugo](#hugo), Git does not process the inline Mermaid fencing, meaning you *have* to use the [Mermaid CLI](#mermaid-cli) to create the PNG images and reference those images using the
+
+<code>! [Digram Name] (Diagram File)</code><br>
+(remove the spaces)
+
+as discussed in the [Hugo](*hugo) section.
+
+This has the consequence that the generated **PNG** files also need to be managed by Git and since these files are generated artifacts from their corresponding **Mermaid** (*\*.mmd*) files then those files must be managed by Git as well. In this manner everything needed to generate your Git **README** file is being managed by Git.
+
+
+#### Git Organization
+
+To prevent your Git repository's root directory from getting cluttered the following directory structure is recommended:
+
+```
+.
+├── README
+│   ├── imgs
+│   │   ├── class-diagram.png
+│   │   ├── featured.png
+│   │   ├── flowchart.png
+│   │   ├── gantt-chart.png
+│   │   ├── git-graph.png
+│   │   ├── pie-chart.png
+│   │   ├── sequence-diagram.png
+│   │   └── state-diagram.png
+│   └── mmd
+│       ├── class-diagram.mmd
+│       ├── er-diagram.mmd
+│       ├── flowchart.mmd
+│       ├── gantt-chart.mmd
+│       ├── git-graph.mmd
+│       ├── pie-chart.mmd
+│       ├── sequence-diagram.mmd
+│       └── state-diagram.mmd
+└── README.md
+```
+
+This organization does the best at keeping the files needed for your Git **README** separate and distinct from the rest of your project files.
